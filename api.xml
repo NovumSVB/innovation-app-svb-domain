@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://novumgit.gitlab.io/innovation-app-schema-xsd/v1/schema-plus-crud.xsd" >
+
+
+    <title>Sociale verzekeringsbank</title>
+    <description>
+        Novum, het Innovatielab van de Sociale Verzekeringsbank heeft dit endpoint ontwikkeld als onderdeel van het
+        een overheid project. Je kan dit endpoint gebruiken bij de bouw van proof of concepts.
+
+        De volgende fake API's zijn beschikbaar:
+
+        - Basisregistratie inkomen
+        - Basisregistratie persoonsgegevens
+        - Centraal Justitieel Incasso Bureau
+        - Justitie en veiligheid
+        - De sociale verzekeringsbank
+        - UWV
+        - Overheid
+        - Digid
+    </description>
+    <api_version>2</api_version>
+    <organisation>Novum - Sociale verzekeringsbank</organisation>
+    <api_dir>api.svb.demo.novum.nu</api_dir>
+    <api_namespace>ApiNovumSvb</api_namespace>
+
+    <nlx_local_in>50070</nlx_local_in>
+    <nlx_local_out>50080</nlx_local_out>
+
+    <servers>
+        <server description="Production API" url="https://api.svb.demo.novum.nu"/>
+        <server description="Production user application" url="https://svb.demo.novum.nu"/>
+        <server description="Test API" url="https://api.svb.test.novum.nu"/>
+        <server description="Test API documentation" url="https://api.svb.test.novum.nu"/>
+        <server description="Test user application" url="https://svb.test.novum.nu"/>
+    </servers>
+
+    <contacts>
+        <contact name="Anton Boutkam" email="anton@novum.nu" type="TECHNICAL" />
+        <contact name="Anton Boutkam" email="anton@novum.nu" type="SUPPORT" />
+    </contacts>
+
+    <!-- Specifiek voor service-config.toml -->
+    <endpoint_url>https://api.svb.demo.novum.nu</endpoint_url>
+    <documentation_url>https://api.svb.demo.novum.nu</documentation_url>
+    <authorization_model>none</authorization_model>
+    <ca_cert_path>~/nlx/certs/letsencrypt-ca.crt</ca_cert_path>
+</api>
+
+

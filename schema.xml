@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="hurah" custom="NovumSvb" crudRoot="Custom/NovumSvb" crudNamespace="Crud\Custom\NovumSvb" defaultIdMethod="native" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://novumgit.gitlab.io/innovation-app-schema-xsd/v1/schema-plus-crud.xsd" >
+
+    <modules>
+        <module title="Persoonsgegevens" icon="user" name="Persoonsgegevens" />
+        <module title="Tegemoetkomingen" icon="money" name="Tegemoetkomingen" />
+        <module title="Nabestaanden" icon="money" name="Nabestaanden" />
+        <module title="Algemene wetten" icon="money" name="Algemeen" />
+        <module title="Aanvragen" icon="list" name="Aanvragen" />
+        <module title="Systeem" icon="cogs" name="System"/>
+    </modules>
+
+    <table name="persoon" module="Persoonsgegevens" title="Personen" phpName="Persoon" namespace="Model\Custom\NovumSvb" apiExposed="true" apiDesc="Dit endpoint bevat fake bsn nummers.">
+        <column name="id" icon="tag"  title="Id" form="INTEGER" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="bsn" icon="user"  title="Burgerservice nummer" form="BSN" required="true"/>
+    </table>
+    <!-- Algemene Ouderdomswet-->
+    <table name="aow" module="Algemeen" title="Algemene Ouderdomswet" phpName="Aow" namespace="Model\Custom\NovumSvb" apiExposed="true" apiDesc="Dit endpoint bevat gegenereerde namaak data  omtrent de algemene ouderdoms wet." >
+        <column name="id" icon="tag" title="Id" form="INTEGER" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="persoon_id" lookupVisible="Model\Custom\NovumSvb\Persoon.bsn" type="INTEGER" title="Persoon" icon="user" form="LOOKUP" required="true"/>
+        <column name="bedrag" icon="money" title="Bedrag" form="MONEY" type="DECIMAL" />
+
+        <foreign-key foreignTable="persoon" phpName="Persoon" onDelete="restrict">
+            <reference local="persoon_id" foreign="id"/>
+        </foreign-key>
+    </table>
+    <!-- Inkomensvoorziening voor ouderen -->
+    <table name="aio" module="Algemeen" title="Inkomensvoorziening ouderen" phpName="Aio" namespace="Model\Custom\NovumSvb" apiExposed="true" apiDesc="Dit endpoint bevat gegenereerde namaak data  omtrent de inkomensvoorziening voor ouderen." >
+        <column name="id" icon="tag" title="Id" form="INTEGER" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="persoon_id" lookupVisible="Model\Custom\NovumSvb\Persoon.bsn" type="INTEGER" title="Persoon" icon="user" form="LOOKUP" required="true"/>
+        <column name="bedrag" icon="money" title="Bedrag" form="MONEY" type="DECIMAL" />
+
+        <foreign-key foreignTable="persoon" phpName="Persoon" onDelete="restrict">
+            <reference local="persoon_id" foreign="id"/>
+        </foreign-key>
+    </table>
+    <!-- Algemene Kinderbijslagwet -->
+    <table name="akw" module="Algemeen" title="Algemene Kinderbijslagwet" phpName="Akw" namespace="Model\Custom\NovumSvb" apiExposed="true" apiDesc="Dit endpoint bevat gegenereerde namaak data  omtrent de algemene kinderbijslagwet." >
+        <column name="id" icon="tag" title="Id" form="INTEGER" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="persoon_id" lookupVisible="Model\Custom\NovumSvb\Persoon.bsn" type="INTEGER" title="Persoon" icon="user" form="LOOKUP" required="true"/>
+        <column name="bedrag" icon="money" title="Bedrag" form="MONEY" type="DECIMAL" />
+
+        <foreign-key foreignTable="persoon" phpName="Persoon" onDelete="restrict">
+            <reference local="persoon_id" foreign="id"/>
+        </foreign-key>
+    </table>
+    <!-- Nabestaandenwet -->
+    <table name="anw" module="Nabestaanden" title="Nabestaandenwet" phpName="Anw" namespace="Model\Custom\NovumSvb" apiExposed="true" apiDesc="Dit endpoint bevat gegenereerde namaak data  omtrent de nabestaandenwet." >
+        <column name="id" icon="tag" title="Id" form="INTEGER" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="persoon_id" lookupVisible="Model\Custom\NovumSvb\Persoon.bsn" type="INTEGER" title="Persoon" icon="user" form="LOOKUP" required="true"/>
+        <column name="bedrag" icon="money" title="Bedrag" form="MONEY" type="DECIMAL" />
+
+        <foreign-key foreignTable="persoon" phpName="Persoon" onDelete="restrict">
+            <reference local="persoon_id" foreign="id"/>
+        </foreign-key>
+    </table>
+    <!-- Overbruggingsregeling -->
+    <table name="obr" module="Tegemoetkomingen" title="Overbruggingsregeling" phpName="Orb" namespace="Model\Custom\NovumSvb" apiExposed="true" apiDesc="Dit endpoint bevat gegenereerde namaak data  omtrent de overbruggingsregeling." >
+        <column name="id" icon="tag" title="Id" form="INTEGER" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="persoon_id" lookupVisible="Model\Custom\NovumSvb\Persoon.bsn" type="INTEGER" title="Persoon" icon="user" form="LOOKUP" required="true"/>
+        <column name="bedrag" icon="money" title="Bedrag" form="MONEY" type="DECIMAL" />
+
+        <foreign-key foreignTable="persoon" phpName="Persoon" onDelete="restrict">
+            <reference local="persoon_id" foreign="id"/>
+        </foreign-key>
+    </table>
+    <!-- Regeling Bijstand Buitenland -->
+    <table name="rbb" module="Tegemoetkomingen" title="Bijstand Buitenland" phpName="Rbb" namespace="Model\Custom\NovumSvb" apiExposed="true" apiDesc="Dit endpoint bevat gegenereerde namaak data  omtrent de regeling bijstand buitenland." >
+        <column name="id" icon="tag" title="Id" form="INTEGER" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="persoon_id" lookupVisible="Model\Custom\NovumSvb\Persoon.bsn" type="INTEGER" title="Persoon" icon="user" form="LOOKUP" required="true"/>
+        <column name="bedrag" icon="money" title="Bedrag" form="MONEY" type="DECIMAL" />
+
+        <foreign-key foreignTable="persoon" phpName="Persoon" onDelete="restrict">
+            <reference local="persoon_id" foreign="id"/>
+        </foreign-key>
+    </table>
+
+    <!-- Tegemoetkoming Asbestslachtoffers -->
+    <table name="tas" module="Tegemoetkomingen" title="Asbestslachtoffers" phpName="Tas" namespace="Model\Custom\NovumSvb" apiExposed="true" apiDesc="Dit endpoint bevat gegenereerde namaak data  omtrent de tegemoetkoming asbestslachtoffers." >
+        <column name="id" icon="tag" title="Id" form="INTEGER" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="persoon_id" lookupVisible="Model\Custom\NovumSvb\Persoon.bsn" type="INTEGER" title="Persoon" icon="user" form="LOOKUP" required="true"/>
+        <column name="bedrag" icon="money" title="BEdrag" form="MONEY" type="DECIMAL" />
+
+        <foreign-key foreignTable="persoon" phpName="Persoon" onDelete="restrict">
+            <reference local="persoon_id" foreign="id"/>
+        </foreign-key>
+    </table>
+
+    <!-- Remigratiewet -->
+    <table name="rem" module="Tegemoetkomingen" title="Remigratiewet" phpName="Rem" namespace="Model\Custom\NovumSvb" apiExposed="true" apiDesc="Dit endpoint bevat gegenereerde namaak data  omtrent de remigratiewet." >
+        <column name="id" icon="tag" title="Id" form="INTEGER" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="persoon_id" lookupVisible="Model\Custom\NovumSvb\Persoon.bsn" type="INTEGER" title="Persoon" icon="user" form="LOOKUP" required="true"/>
+        <column name="bedrag" icon="money" title="Hoogte bedrag" form="MONEY" type="DECIMAL" />
+
+        <foreign-key foreignTable="persoon" phpName="Persoon" onDelete="restrict">
+            <reference local="persoon_id" foreign="id"/>
+        </foreign-key>
+        <behavior name="timestampable"/>
+    </table>
+
+    <table name="rem_aanvraag" module="Aanvragen" title="Remigratiewet" phpName="RemAanvraag" namespace="Model\Custom\NovumSvb" apiExposed="true" apiDesc="Dit endpoint bevat gegenereerde namaak data  omtrent de remigratiewet." >
+        <column name="id" icon="tag" title="Id" form="INTEGER" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="persoon_id" lookupVisible="Model\Custom\NovumSvb\Persoon.bsn" type="INTEGER" title="Persoon" icon="user" form="LOOKUP" required="true"/>
+
+        <column name="geboorte_datum" icon="calendar" title="Wat is de uw geboortedatum" form="DATE" type="DATE" />
+        <column name="geboorte_land" icon="map-marker" title="In welk land bent u geboren?" form="LOOKUP" lookupVisible="https://api.gemeente.demo.novum.nu/v2/rest/land/{naam}" />
+        <column name="immigratie_datum" icon="calendar" title="Sinds wanneer woont u in Nederland?" form="DATE" type="DATE" />
+        <column name="heeft_nl_paspoort" icon="check" title="Heeft u een Nederlands paspoort of ID-kaart?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="emigratie_land" icon="map-marker" title="Naar welk land wilt u emigreren?" form="LOOKUP" lookupVisible="https://api.gemeente.demo.novum.nu/v2/rest/land/{naam}" />
+
+        <column name="emigratie_verblijfsvergunning" icon="check" title="Heeft u een verblijfsvergunning van het land waar u naar toe emigreert?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="partner_emigratie_verblijfsvergunning" icon="check" title="Heeft uw partner een verblijfsvergunning van het land waar u naar toe emigreert?" form="CHECKBOX" type="BOOLEAN" />
+
+        <column name="ontvangt_ww" icon="check" title="Ontvangt u een ww uitkering?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="ontvangt_bijstand" icon="check" title="Ontvangt u een bijstands uitkering?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="ontvangt_wao" icon="check" title="Ontvangt u WAO uitkering?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="ontvangt_wia" icon="check" title="Ontvagt u een WIA uitkering?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="ontvangt_aow" icon="check" title="Ontvagt u een AOW uitkering?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="ontvangt_wamil" icon="check" title="Ontvangt u een Wamil uitkering?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="ontvangt_iaoz" icon="check" title="Ontvangt u een IAOZ uitkering?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="ontvangt_iaow" icon="check" title="Ontvangt u een IAOW uitkering?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="ontvangt_iow" icon="check" title="Ontvangt u een IOW uitkering?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="start_ww" icon="calendar" title="Vanaf wanneer krijgt u WW?" form="DATE" type="DATE" />
+
+        <column name="bezwaar_of_beroep_uitkeringsinstantie" icon="check" title="Loopt er bezwaar of beroep tegen de uitkeringsinstantie?" form="CHECKBOX" type="BOOLEAN" />
+
+        <column name="burgerlijke_staat_id" icon="group" title="Wat is uw burgelijke staat?" form="STRING" type="INTEGER" />
+        <column name="samenwonend" icon="group" title="Woont u samen in Nederland?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="partner_remigratie" icon="group" title="Remigreert uw partner mee?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="partner_ww_start" icon="calendar" title="Vanaf wanneer krijgt uw partner WW?" form="DATE" type="DATE" />
+
+        <column name="schulden_bij_cjib" icon="check" title="Heeft u momenteel schulden bij het CJIB waarvoor geen betalingsregeling voor is getroffen?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="schulden_bij_belastingdienst" icon="check" title="Heeft u momenteel schulden bij de de Belastingdienst waarvoor geen betalingsregeling voor is getroffen?" form="CHECKBOX" type="BOOLEAN" />
+
+        <column name="partner_schulden_bij_cjib" icon="check" title="Heeft uw partner momenteel schulden bij het CJIB waarvoor geen betalingsregeling voor is getroffen?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="partner_schulden_bij_belastingdienst" icon="check" title="Heeft uw partner momenteel schulden bij de de Belastingdienst waarvoor geen betalingsregeling voor is getroffen?" form="CHECKBOX" type="BOOLEAN" />
+
+        <column name="voorlopige_hechtenis" icon="check" title="Zit u in de gevangenis of voorlopige hechtenis?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="partner_voorlopige_hechtenis" icon="check" title="Zit uw partner in de gevangenis of voorlopige hechtenis?" form="CHECKBOX" type="BOOLEAN" />
+
+        <!--  Aanvraag -->
+        <column name="bsn" icon="user" title="Wat is uw burgerservicenummer (BSN)" form="BSN" required="true"/>
+        <column name="partner_bsn" icon="user" title="Wat is het burgerservicenummer (BSN) van uw partner?" form="BSN" required="true"/>
+
+        <column name="voornaam" icon="tag" title="Voornaam" form="STRING" required="true"/>
+        <column name="achternaam" icon="tag" title="Achternaam" form="STRING" required="true"/>
+
+        <column name="partner_voornaam" icon="tag" title="Voornaam partner" form="STRING" required="true"/>
+        <column name="partner_achternaam" icon="tag" title="Achternaam partner" form="STRING" required="true"/>
+
+        <column name="partner_geboorte_datum" icon="calendar" title="Wat is de geboortedatum van uw partner?" form="DATE" type="DATE" />
+        <column name="partner_zelfde_adres" icon="check" title="Woont uw partner op hetzelfde adres?" form="CHECKBOX" type="BOOLEAN" />
+
+        <column name="provincie_id" lookupVisible="http://api.gemeente.demo.novum.nu/v2/rest/provincie/{Naam}" title="Provincie" icon="map-marker" form="LOOKUP" type="INTEGER" required="true"/>
+        <column name="gemeente_id" lookupVisible="http://api.gemeente.demo.novum.nu/v2/rest/gemeente/{Naam}" title="Gemeente" icon="building" form="LOOKUP" type="INTEGER" required="true"/>
+
+        <column name="straat" title="Straat" icon="home" form="STRING" />
+        <column name="huisnummer" icon="home" title="Huisnummer" form="STRING"  />
+        <column name="postcode" title="Postcode" form="POSTCODE" icon="envelope" size="6" />
+
+        <column name="partner_provincie_id" lookupVisible="http://api.gemeente.demo.novum.nu/v2/rest/provincie/{Naam}" title="Provincie (partner)" icon="map-marker" form="LOOKUP" type="INTEGER" required="true"/>
+        <column name="partner_gemeente_id" lookupVisible="http://api.gemeente.demo.novum.nu/v2/rest/gemeente/{Naam}" title="Gemeente (partner)" icon="building" form="LOOKUP" type="INTEGER" required="true"/>
+        <column name="partner_straat" title="Straat (partner)" icon="home" form="STRING" />
+        <column name="partner_huisnummer" icon="home" title="Huisnummer (partner)" form="STRING"  />
+        <column name="partner_postcode" title="Postcode (partner)" form="POSTCODE" icon="envelope" size="6" />
+
+        <column name="partner_ontvangt_ww" icon="check" title="Ontvangt uw partner een ww uitkering?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="partner_ontvangt_bijstand" icon="check" title="Ontvangt uw partner een bijstands uitkering?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="partner_ontvangt_wao" icon="check" title="Ontvanngt uw partner WAO uitkering?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="partner_ontvangt_wia" icon="check" title="Ontvangt uw partner een WIA uitkering?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="partner_ontvangt_aow" icon="check" title="Ontvangt uw partner een AOW uitkering?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="partner_ontvangt_wamil" icon="check" title="Ontvangt uw partner een Wamil uitkering?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="partner_ontvangt_iaoz" icon="check" title="Ontvangt uw partner een IAOZ uitkering?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="partner_ontvangt_iaow" icon="check" title="Ontvangt uw partner een IAOW uitkering?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="partner_ontvangt_iow" icon="check" title="Ontvangt uw partner een IOW uitkering?" form="CHECKBOX" type="BOOLEAN" />
+
+        <column name="heeft_kinderen_jonger_dan_18" icon="check" title="Heeft u kinderen die jonger dan 18 jaar zijn?" form="CHECKBOX" type="BOOLEAN" />
+        <column name="aantal_kinderen_jonger_dan_18" icon="check" title="Hoeveel kinderen jonger dan 18 jaar heeft u?" form="INTEGER" type="INTEGER" />
+        <column name="kinderen_zelfde_adres" icon="check" title="Zijn uw kinderen ingeschreven op hetzelfde adres?" form="CHECKBOX" type="BOOLEAN" />
+
+        <column name="toekomstig_adres" icon="edit" title="Wat is uw toekomstige adres?" form="TEXTAREA" />
+        <column name="post_ontvangen_toekomstig_adres" icon="edit" title="Wilt u daar post ontvangen?" form="CHECKBOX" type="BOOLEAN" />
+
+        <column name="heeft_bankrekening_emigratieland" icon="check" title="Heeft u al een bankrekening in het land waar u heen remigreert?" form="CHECKBOX" type="BOOLEAN" />
+
+        <column name="gegevens_naar_waarheid_ingevuld" icon="check" title="Ik heb mijn gegevens naar waarheid ingevuld.  + handtekening" form="CHECKBOX" type="BOOLEAN" />
+        <column name="bedrag" icon="money" title="Hoogte bedrag" form="MONEY" type="DECIMAL" />
+
+        <foreign-key foreignTable="persoon" phpName="Persoon" onDelete="restrict">
+            <reference local="persoon_id" foreign="id"/>
+        </foreign-key>
+        <behavior name="timestampable"/>
+    </table>
+
+
+    <!-- Tegemoetkoming ouders thuiswonde gehandicapte kinderen (TOG) -->
+    <table name="tog" module="Tegemoetkomingen" title="Wet TOG" phpName="Tog" namespace="Model\Custom\NovumSvb" apiExposed="true" apiDesc="Dit endpoint bevat gegenereerde namaak data  omtrent de  Tegemoetkoming ouders thuiswonde gehandicapte kinderen." >
+        <column name="id" icon="tag" title="Id" form="INTEGER" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="persoon_id" lookupVisible="Model\Custom\NovumSvb\Persoon.bsn" type="INTEGER" title="Persoon" icon="user" form="LOOKUP" required="true"/>
+        <column name="bedrag" icon="money" title="Hoogte tegemoetkoming" form="MONEY" type="DECIMAL" />
+
+        <foreign-key foreignTable="persoon" phpName="Persoon" onDelete="restrict">
+            <reference local="persoon_id" foreign="id"/>
+        </foreign-key>
+    </table>
+    <!-- Kindgebonden budget -->
+    <table name="wkb" module="Tegemoetkomingen" title="Wet kindgebonden budget" phpName="Wkb" namespace="Model\Custom\NovumSvb" apiExposed="true" apiDesc="Dit endpoint bevat gegenereerde namaak data  omtrent het kindgebonden budget." >
+        <column name="id" icon="tag" title="Id" form="INTEGER" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="persoon_id" lookupVisible="Model\Custom\NovumSvb\Persoon.bsn" type="INTEGER" title="Persoon" icon="user" form="LOOKUP" required="true"/>
+        <column name="bedrag" icon="money" title="Bedrag kindgeboden budget" form="MONEY" type="DECIMAL" />
+
+        <foreign-key foreignTable="persoon" phpName="Persoon" onDelete="restrict">
+            <reference local="persoon_id" foreign="id"/>
+        </foreign-key>
+    </table>
+
+
+    <external-schema filename="../../schema/novum-schema.xml" />
+    <external-schema filename="../../schema/core-schema-extra.xml" />
+    <external-schema filename="../../schema/core-schema.xml"/>
+</database>

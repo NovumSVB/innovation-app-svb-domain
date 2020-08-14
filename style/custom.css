@@ -1,0 +1,144 @@
+body.utility-page #main {
+    overflow: hidden;
+    /* background: url(../../../img/patterns/backgrounds/1.jpg) no-repeat top center #2d494d; */
+    background: #FFF;
+}
+
+div.navbar-logo-wrapper
+{
+    background-color: #fff!important;
+}
+#sidebar_left
+{
+    background-color: #007a62!important;
+}
+.sidebar-left-content{
+    background-color: #007a62;
+    box-shadow: -39px 7px 0 0 #007a62 inset;
+}
+.sidebar-menu > li > ul
+{
+    background-color: #007a62;
+}
+.bg-dark
+{
+    background-color: #007a62!important;
+}
+.navbar.bg-dark{
+    background-color: #007a62!important;
+}
+.btn-primary {
+    background-color: #007a62!important;
+}
+a {
+    color: #007a62;
+}
+.sidebar-widget.author-widget .media-body {
+    color: #fff;
+}
+.navbar-logo-wrapper {
+    background-color:#fff!important;
+}
+#topbar .nav.nav-list-topbar li.active a {
+    color: #007a62;
+}
+.allcp-form .field-icon i{
+    color: #007a62;
+}
+.radio-custom.radio-primary label:before, .checkbox-custom.checkbox-primary label:before {
+    border-color: #007a62;
+}
+.allcp-form .btn-primary{
+    background-color:#007a62;
+}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background-color: #007a62;
+    border-color: #007a62;
+}
+.pagination > li > a, .pagination > li > span {
+    color: #007a62;
+}
+.navbar #sidebar_left_toggle, .navbar #sidebar_left_toggle:hover, .navbar #sidebar_left_toggle:focus {
+    color: #007a62;
+}
+body.sb-l-m .sidebar-menu > li > a > span:nth-child(1) {
+    color: #576469;
+}
+.sidebar-menu .sidebar-label {
+    color: #FFFFFF;
+}
+.sidebar-menu > li > a {
+    color: #fff;
+}
+.sidebar-menu > li > ul > li > a {
+    color: #fff;
+}
+
+
+.allcp-form.theme-primary .gui-input:hover, .allcp-form.theme-primary .gui-textarea:hover, .allcp-form.theme-primary .select > select:hover, .allcp-form.theme-primary .select-multiple select:hover, .allcp-form.theme-primary .gui-input:hover ~ .input-footer, .allcp-form.theme-primary .file .gui-file:hover + .gui-input, .allcp-form.theme-primary .gui-textarea:hover ~ .input-footer {
+    border-color: #007a62;
+}
+.allcp-form.theme-primary .gui-input:focus,
+.allcp-form.theme-primary .select > select:focus,
+.allcp-form.theme-primary .select-multiple select:focus {
+    outline-color: #007a62;
+}
+.allcp-form.theme-primary .gui-input:focus, .allcp-form.theme-primary .gui-textarea:focus, .allcp-form.theme-primary .select > select:focus, .allcp-form.theme-primary .select-multiple select:focus {
+    border-color: #007a62;
+}
+.ui-datepicker-buttonpane button,
+.wizard .steps li.current a,
+.sp-container button {
+    background-color: #007a62;
+}
+.allcp-form.theme-primary .gui-input:focus, .allcp-form.theme-primary .gui-textarea:focus, .allcp-form.theme-primary .select > select:focus, .allcp-form.theme-primary .select-multiple select:focus {
+    border-color: #007a62;
+}
+.allcp-form.theme-primary .gui-input:focus ~ .field-icon i, .allcp-form.theme-primary .gui-textarea:focus ~ .field-icon i {
+    color: #007a62;
+}
+.align-right{text-align: right;}
+
+tr.pin.gpio{cursor:pointer;}
+tr.pin.positive{background-color:red;color:white;}
+tr.pin.ground{background-color:black;color:white;}
+tr.pin.dnc{background-color:dimgrey;color:lightgrey;}
+
+.info-box{
+    font-weight: bolder;
+    border-radius: 10px;
+    text-align: center;
+    height:110px;
+    margin-bottom:10px;
+    position: relative;
+}
+.info-box span.label{
+    width:100%;
+    color: #212529;
+    display: block;
+    position: absolute;
+    bottom:0;
+    border-radius: 0 0 5px 5px;
+    background-color: lightgrey;
+
+    height:30px;
+}
+
+.info-box.info{
+    background-color: #17a2b8;
+    color:white;
+}
+.info-box.danger{
+    background-color: #dc3545;
+    color:white;
+}
+.info-box.success{
+    background-color: #28a745;
+    color:white;
+}
+.info-box.off{
+    background-color: #6c757d;
+    color:white;
+}
+
+
