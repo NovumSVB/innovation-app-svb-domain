@@ -2,7 +2,7 @@
 <api xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://novumgit.gitlab.io/innovation-app-schema-xsdv1/api-info.xsd" >
 
 
-    <title>Sociale verzekeringsbank</title>
+    <title>de Sociale verzekeringsbank (SVB)</title>
     <description>
         Novum, het Innovatielab van de Sociale Verzekeringsbank heeft dit endpoint ontwikkeld als onderdeel van het
         een overheid project. Je kan dit endpoint gebruiken bij de bouw van proof of concepts.
