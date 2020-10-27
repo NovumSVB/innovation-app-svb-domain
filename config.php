@@ -1,5 +1,4 @@
 <?php
-use Core\Cfg;
 
 if(isset($_SERVER['IS_DEVEL']))
 {
@@ -27,6 +26,6 @@ else
 }
 
 $aConfig['CUSTOM_NAMESPACE'] = 'NovumSvb';
+return $aConfig;
 
-Cfg::set($aConfig);
 
