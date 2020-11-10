@@ -4,7 +4,7 @@
     "require": {
         "novum/innovation-app-core": "*",
         "hurah/hurah-installer": "*",
-        "PHP": ">=7.3"
+        "PHP": ">=7.4"
     },
     "license": "MIT",
     "prefer-stable": true,
